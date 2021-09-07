@@ -2,6 +2,7 @@
 # For more information, see https://www.terraform.io/docs/backends/types/remote.html
 terraform {
   backend "remote" {
+#    hostname = "app.terraform.io"
     organization = "example-org-5c40a9"
 
     workspaces {
