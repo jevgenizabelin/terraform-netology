@@ -19,7 +19,7 @@ resource "aws_instance" "app_server_1" {
   instance_type = "t2.micro"
 
   tags = {
-    Name = "Netology_test_server"
+    Name = "Netology_server"
   }
 }
 
