@@ -17,6 +17,7 @@ terraform {
 resource "aws_instance" "app_server_1" {
   ami           = "ami-830c94e3"
   instance_type = "t2.micro"
+  subnet_id  = aws_subnet.jz-subnet.id
 
   tags = {
     Name = "Netology_app_server"
@@ -43,4 +44,14 @@ data "aws_ami" "ubuntu" {
   }
 
   owners = ["099720109477"] # Canonical
+}
+
+resource "aws_vpc" "default" {
+  cidr_block           = "172.31.0.0/16"
+  enable_dns_hostnames = true
+}
+
+resource "aws_subnet" "jz-subnet" {
+  vpc_id                  = aws_vpc.default.id
+  cidr_block              = "172.31.75.0/24"
 }
